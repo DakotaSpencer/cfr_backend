@@ -1,7 +1,10 @@
+using CFRDal;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IManager, ApiManager>();
 
 var app = builder.Build();
 

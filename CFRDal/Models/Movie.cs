@@ -25,5 +25,7 @@ namespace CFRDal.Models
 
         [DisplayName("Original Language")]
         public string OriginalLanguage { get; set; }
+        
+        public string BackdropPath { get; set; }
     }
 }

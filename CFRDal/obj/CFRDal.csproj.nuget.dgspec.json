@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Chris\\Documents\\GitHub\\CFRDal\\CFRDal.csproj": {}
+    "C:\\Users\\Chris\\Documents\\GitHub\\cfr_backend\\CFRDal\\CFRDal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Chris\\Documents\\GitHub\\CFRDal\\CFRDal.csproj": {
+    "C:\\Users\\Chris\\Documents\\GitHub\\cfr_backend\\CFRDal\\CFRDal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Chris\\Documents\\GitHub\\CFRDal\\CFRDal.csproj",
+        "projectUniqueName": "C:\\Users\\Chris\\Documents\\GitHub\\cfr_backend\\CFRDal\\CFRDal.csproj",
         "projectName": "CFRDal",
-        "projectPath": "C:\\Users\\Chris\\Documents\\GitHub\\CFRDal\\CFRDal.csproj",
+        "projectPath": "C:\\Users\\Chris\\Documents\\GitHub\\cfr_backend\\CFRDal\\CFRDal.csproj",
         "packagesPath": "C:\\Users\\Chris\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Chris\\Documents\\GitHub\\CFRDal\\obj\\",
+        "outputPath": "C:\\Users\\Chris\\Documents\\GitHub\\cfr_backend\\CFRDal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,16 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.2, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[108.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
