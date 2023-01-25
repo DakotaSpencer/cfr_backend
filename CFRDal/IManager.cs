@@ -9,6 +9,6 @@ namespace CFRDal
 {
     public interface IManager
     {
-        public string GetMovie(int id);
+        public Movie GetMovie(int id);
     }
 }

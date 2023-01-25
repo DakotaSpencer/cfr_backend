@@ -27,4 +27,9 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+    name: "movie",
+    pattern: "movie/{id:int}",
+    new { controller = "Api", action = "GetMovie" });
+
 app.Run();

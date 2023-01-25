@@ -9,23 +9,23 @@ namespace CFRDal.Models
 {
     public class Movie
     {
-        public int Id { get; set; }
+        public int id { get; set; }
 
         [DisplayName("Rated Adult")]
-        public bool RatedAdult { get; set; }
+        public bool adult { get; set; }
         
-        public string Overview { get; set; }
+        public string overview { get; set; }
 
         [DisplayName("Release Date")]
-        public string ReleaseDate { get; set; }
+        public string release_date { get; set; }
 
-        public List<string> Genres { get; set; }
+        public Object[] genres { get; set; }
 
-        public string Title { get; set; }
+        public string title { get; set; }
 
         [DisplayName("Original Language")]
-        public string OriginalLanguage { get; set; }
+        public string original_language { get; set; }
         
-        public string BackdropPath { get; set; }
+        public string backdrop_path { get; set; }
     }
 }
