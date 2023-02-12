@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using cfr_backend.Models;
+using Microsoft.Extensions.Logging;
 
 namespace cfr_backend.Controllers;
 

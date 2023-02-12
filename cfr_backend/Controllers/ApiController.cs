@@ -27,30 +27,6 @@ namespace cfr_backend.Controllers
         {
             var movie = _dal.GetMovie(id);
             return Json(movie);
-
-            /*
-            string output = _dal.GetMovie(id);
-            Console.Out.WriteLine(output);
-
-            var encoderSettings = new TextEncoderSettings();
-            encoderSettings.AllowRange(UnicodeRanges.BasicLatin);
-
-            var options = new JsonSerializerOptions
-            {
-                Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
-                WriteIndented = true
-            };*/
-
-            //output = output.Replace('"', '\'');
-
-            /*return new HttpResponseMessage()
-            {
-                Content = new StringContent(output, System.Text.Encoding.UTF8, "application/json")
-            };*/
-
-            //var result = JObject.Parse(output);
-
-            //return JsonSerializer.Serialize(new Utf8JsonWriter(), output);
         }
     }
 }
