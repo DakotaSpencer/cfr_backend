@@ -16,8 +16,10 @@ namespace CFRDal
         public string AuthenticateUser(LoginRequest loginRequest);
         public string CreateUser(User user);
         public bool DeleteUser(string id);
+        public bool DeleteReview(string id);
         public string CreateReview(Review review);
         public string UpdateUser(User user);
+        public string UpdateReview(Review review);
         // votes
         public bool CreateUpvote(Upvote upvote);
         public bool CreateDownvote(Downvote downvote);

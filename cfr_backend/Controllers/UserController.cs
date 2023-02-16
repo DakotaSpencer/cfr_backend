@@ -56,6 +56,14 @@ namespace cfr_backend.Controllers
             return Json(userId);
         }
 
+        [Route("review/{id}")]
+        [HttpPut]
+        public JsonResult UpdateReview([FromBody] Review review)
+        {
+            var reviewId = _dal.UpdateReview(review);
+            return Json(reviewId);
+        }
+
         [Route("movie/{id:int}/reviews")]
         [HttpGet]
         public JsonResult GetReviewsForMovie(int movieId)
@@ -103,6 +111,14 @@ namespace cfr_backend.Controllers
         public JsonResult RemoveDownvote([FromBody] Downvote downvote)
         {
             bool success = _dal.RemoveDownvote(downvote);
+            return Json(success);
+        }
+
+        [Route("review/{id}")]
+        [HttpDelete]
+        public JsonResult DeleteReview(string id)
+        {
+            bool success = _dal.DeleteReview(id);
             return Json(success);
         }
     }

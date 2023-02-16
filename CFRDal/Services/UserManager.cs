@@ -28,6 +28,22 @@ namespace CFRDal
             }
         }
 
+        public string UpdateReview(Review review)
+        {
+            using (var dbContext = new ApiDbContext())
+            {
+                try
+                {
+                    dbContext.Reviews.Update(review);
+                    dbContext.SaveChanges();
+                    return review.ReviewId;
+                } catch (Exception e) {
+                    Console.WriteLine("Exception updating review: " + e);
+                    return "Could not update review";
+                }
+            }
+        }
+
         public string UpdateUser(User user)
         {
             using (var dbContext = new ApiDbContext())
@@ -73,6 +89,23 @@ namespace CFRDal
                     return true;
                 } catch (Exception e) {
                     Console.WriteLine("Exception deleting user: " + e);
+                    return false;
+                }
+            }
+        }
+
+        public bool DeleteReview(string id)
+        {
+            using (var context = new ApiDbContext())
+            {
+                try
+                {
+                    var review = context.Reviews.Where(review => review.ReviewId == id).FirstOrDefault();
+                    context.Reviews.Remove(review);
+                    context.SaveChanges();
+                    return true;
+                } catch (Exception e) {
+                    Console.WriteLine("Exception deleting review: " + e);
                     return false;
                 }
             }

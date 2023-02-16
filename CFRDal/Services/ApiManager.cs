@@ -67,6 +67,11 @@ namespace CFRDal
             return userManager.DeleteUser(id);
         }
 
+        public bool DeleteReview(string id)
+        {
+            return userManager.DeleteReview(id);
+        }
+
         public string CreateReview(Review review)
         {
             return userManager.CreateReview(review);
@@ -75,6 +80,11 @@ namespace CFRDal
         public string UpdateUser(User user)
         {
             return userManager.UpdateUser(user);
+        }
+
+        public string UpdateReview(Review review)
+        {
+            return userManager.UpdateReview(review);
         }
 
         public bool CreateUpvote(Upvote upvote)
