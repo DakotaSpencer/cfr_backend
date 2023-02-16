@@ -50,6 +50,7 @@ namespace CFRDal
             {
                 try
                 {
+                    review.ReviewTime = DateTime.Now;
                     context.Reviews.Add(review);
                     context.SaveChanges();
                     return review.ReviewId;
@@ -107,6 +108,134 @@ namespace CFRDal
                 {
                     Console.WriteLine("Could not get reviews: " + e);
                     return new List<Review>();
+                }
+            }
+        }
+        
+        public List<Review> GetReviewsForUser(string id)
+        {
+            using (var context = new ApiDbContext())
+            {
+                try
+                {
+                    List<Review> reviews = context.Reviews.Where(review => review.ReviewUserId == id).ToList();
+                    return reviews;
+                } catch (Exception e)
+                {
+                    Console.WriteLine("Could not get reviews: " + e);
+                    return new List<Review>();
+                }
+            }
+        }
+
+        // votes
+        public bool CreateUpvote(Upvote upvote)
+        {
+            using (var context = new ApiDbContext())
+            {
+                try
+                {
+                    context.Upvotes.Add(upvote);
+                    return true;
+                } catch (Exception e)
+                {
+                    Console.WriteLine("Could not create upvote: " + e);
+                    return false;
+                }
+            }
+        }
+
+        public bool CreateDownvote(Downvote downvote)
+        {
+            using (var context = new ApiDbContext())
+            {
+                try
+                {
+                    context.Downvotes.Add(downvote);
+                    return true;
+                } catch (Exception e)
+                {
+                    Console.WriteLine("Could not create downvote: " + e);
+                    return false;
+                }
+            }            
+        }
+        
+        public bool RemoveUpvote(Upvote upvote)
+        {
+            using (var context = new ApiDbContext())
+            {
+                try
+                {
+                    context.Upvotes.Remove(upvote);
+                    return true;
+                } catch (Exception e)
+                {
+                    Console.WriteLine("Could not remove upvote: " + e);
+                    return false;
+                }
+            }
+        }
+        
+        public bool RemoveUpvote(Downvote downvote)
+        {
+            // if upvote exists then remove
+            using (var context = new ApiDbContext())
+            {
+                Upvote upvote = new Upvote() { UpvoteReviewId = downvote.DownvoteReviewId, UpvoteUserId = downvote.DownvoteUserId };
+                if(context.Upvotes.Find(upvote) == null)
+                {
+                    return false;
+                }
+
+                try
+                {
+                    
+                    context.Upvotes.Remove(upvote);
+                    return true;
+                } catch (Exception e)
+                {
+                    Console.WriteLine("Could not remove upvote: " + e);
+                    return false;
+                }
+            }
+        }
+        
+        public bool RemoveDownvote(Downvote downvote)
+        {
+            using (var context = new ApiDbContext())
+            {
+                try
+                {
+                    context.Downvotes.Remove(downvote);
+                    return true;
+                } catch (Exception e)
+                {
+                    Console.WriteLine("Could not remove downvote: " + e);
+                    return false;
+                }
+            }            
+        }
+        
+        public bool RemoveDownvote(Upvote upvote)
+        {
+            // if downvote exists then remove   
+            using (var context = new ApiDbContext())
+            {
+                Downvote downvote = new Downvote() { DownvoteReviewId = upvote.UpvoteReviewId, DownvoteUserId = upvote.UpvoteUserId };
+                if(context.Downvotes.Find(downvote) == null)
+                {
+                    return false;
+                }
+
+                try
+                {
+                    context.Downvotes.Remove(downvote);
+                    return true;
+                } catch (Exception e)
+                {
+                    Console.WriteLine("Could not remove upvote: " + e);
+                    return false;
                 }
             }
         }

@@ -27,16 +27,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-app.MapControllerRoute(
-    name: "movie",
-    pattern: "movie/{id:int}",
-    new { controller = "Api", action = "GetMovie" });
     
-app.MapControllerRoute(
-    name: "getreviews",
-    pattern: "movie/{id:int}/reviews",
-    new { controller = "Api", action = "GetReviewsForMovie" });
 
 app.MapControllerRoute(
     name: "createUser",

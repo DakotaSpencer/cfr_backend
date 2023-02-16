@@ -42,6 +42,11 @@ namespace CFRDal
             return userManager.GetReviewsForMovie(movieId);
         }
 
+        public List<Review> GetReviewsForUser(string userId)
+        {
+            return userManager.GetReviewsForUser(userId);
+        }
+
         public List<Movie> SearchMovies(string query)
         {
             return new List<Movie>();
@@ -70,6 +75,36 @@ namespace CFRDal
         public string UpdateUser(User user)
         {
             return userManager.UpdateUser(user);
+        }
+
+        public bool CreateUpvote(Upvote upvote)
+        {
+            return userManager.CreateUpvote(upvote);
+        }
+
+        public bool CreateDownvote(Downvote downvote)
+        {
+            return userManager.CreateDownvote(downvote);
+        }
+
+        public bool RemoveUpvote(Upvote upvote)
+        {
+            return userManager.RemoveUpvote(upvote);
+        }
+
+        public bool RemoveDownvote(Downvote downvote)
+        {
+            return userManager.RemoveDownvote(downvote);
+        }
+
+        public bool RemoveUpvote(Downvote downvote)
+        {
+            return userManager.RemoveUpvote(downvote);
+        }
+
+        public bool RemoveDownvote(Upvote upvote)
+        {
+            return userManager.RemoveDownvote(upvote);
         }
     }
 }

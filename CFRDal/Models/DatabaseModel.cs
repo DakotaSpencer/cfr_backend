@@ -12,6 +12,7 @@ namespace CFRDal.Models
     public class Review
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string ReviewId { get; set; }
         public string ReviewUserId { get; set; }
         public DateTime ReviewTime { get; set; }

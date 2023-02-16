@@ -6,6 +6,7 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
 using System.Web.Mvc;
+using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace cfr_backend.Controllers
 {
@@ -22,6 +23,7 @@ namespace cfr_backend.Controllers
             return View();
         }
 
+        [Route("movie/{id:int}")]
         [Microsoft.AspNetCore.Mvc.HttpGet]
         public Microsoft.AspNetCore.Mvc.JsonResult GetMovie(int id)
         {
