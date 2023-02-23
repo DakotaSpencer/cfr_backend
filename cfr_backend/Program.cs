@@ -29,24 +29,4 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
     
 
-app.MapControllerRoute(
-    name: "createUser",
-    pattern: "createuser",
-    new { controller = "User", action = "CreateUser" });
-
-app.MapControllerRoute(
-    name: "deleteUser",
-    pattern: "deleteuser/{id}",
-    new { controller = "User", action = "DeleteUser" });
-
-app.MapControllerRoute(
-    name: "createReview",
-    pattern: "createreview",
-    new { controller = "User", action = "CreateReview" });
-
-app.MapControllerRoute(
-    name: "login",
-    pattern: "login",
-    new { controller = "User", action = "Login" });
-
 app.Run();

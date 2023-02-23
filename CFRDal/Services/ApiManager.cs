@@ -49,7 +49,19 @@ namespace CFRDal
 
         public List<Movie> SearchMovies(string query)
         {
-            return new List<Movie>();
+            List<Movie> results = new List<Movie>();
+            var req = new RestRequest("https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=en-US&query=" + query + "&include_adult=false");
+            var res = client.Execute(req);
+            string json = "";
+
+            if(res.StatusCode == HttpStatusCode.OK)
+            {
+                json = res.Content;
+            }
+
+            
+
+            return results;
         }
 
         public string AuthenticateUser(LoginRequest loginRequest)

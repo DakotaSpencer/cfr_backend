@@ -24,9 +24,9 @@ namespace cfr_backend.Controllers
             return Json(userId);
         }
 
-        [Route("user/{id}")]
+        [Route("user")]
         [HttpDelete]
-        public JsonResult DeleteUser(string id)
+        public JsonResult DeleteUser([FromBody] string id)
         {
             var success = _dal.DeleteUser(id);
             return Json(success);

@@ -5,7 +5,6 @@ namespace CFRDal
 {
     public class UserManager
     {
-        private static string HASH = "$2a$10$6w0p7nwaO7Q4R5uEF8Wc3.D2REixhRK7nZKimj.T48iMCdPcSWD3G";
         public string CreateUser(User user)
         {
             using (var dbContext = new ApiDbContext())
