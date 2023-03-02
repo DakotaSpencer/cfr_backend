@@ -57,21 +57,26 @@ namespace CFRDal
             return userManager.GetReviewsForUser(userId);
         }
 
-        public List<Movie> SearchMovies(string query)
+        public List<SearchResultMovie> SearchMovies(string query)
         {
-            List<Movie> results = new List<Movie>();
+            List<SearchResultMovie> returnList = new List<SearchResultMovie>();
+            MovieHolder results = new MovieHolder();
             var req = new RestRequest("https://api.themoviedb.org/3/search/movie?api_key=" + API_KEY + "&language=en-US&query=" + query + "&include_adult=false");
             var res = client.Execute(req);
             string json = "";
 
             if(res.StatusCode == HttpStatusCode.OK)
             {
-                json = res.Content;
+                results = JsonSerializer.Deserialize<MovieHolder>(res.Content);
             }
 
-            
+            foreach(var movie in results.results) 
+            {
+                movie.poster_path = IMG_BASE_PATH + "w154" + movie.poster_path;
+                returnList.Add(movie);
+            }
 
-            return results;
+            return returnList;
         }
 
         public string AuthenticateUser(LoginRequest loginRequest)
