@@ -7,7 +7,13 @@
 
     <h2>POST: /createuser</h2>
     <p>This takes a body and creates a new user.</p>
-    <p>A user has: UserEmail (string)</p>
+    <p>A user has: UserEmail, UserCity, UserStreet, UserState, UserZIP, UserPhone, UserPassword, UserFirstName, UserLastName. All are strings.</p>
+
+    <h2>POST: /createreview</h2>
+    <p>This takes a body and creates a new review.</p>
+
+    <h2>POST: /login</h2>
+    <p>This takes a login request, which is composed of a string for an email and password.</p>
 
     <h2>GET: /movie/(id:int)</h2>
     <p>This takes the int value of a movie id and returns a movie in JSON format.</p>

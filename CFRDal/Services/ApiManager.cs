@@ -39,6 +39,11 @@ namespace CFRDal
             Movie movie = JsonSerializer.Deserialize<Movie>(json);
             movie.backdrop_path = IMG_BASE_PATH + "original" + movie.backdrop_path;
             movie.poster_path = IMG_BASE_PATH + "w500" + movie.poster_path;
+            for(var i = 0; i < movie.production_companies.Length; i++) {
+                if(movie.production_companies[i].logo_path != null) {
+                    movie.production_companies[i].logo_path = IMG_BASE_PATH + "w154" + movie.production_companies[i].logo_path;
+                }
+            }
             return movie;
         }
 

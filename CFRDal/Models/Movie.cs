@@ -29,6 +29,6 @@ namespace CFRDal.Models
 
         public string poster_path { get; set; }
 
-        public Object[] production_companies { get; set; }
+        public Company[] production_companies { get; set; }
     }
 }
