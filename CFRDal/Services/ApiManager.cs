@@ -17,9 +17,13 @@ namespace CFRDal
         private static UserManager userManager = new UserManager();
         private static string URL = "https://api.themoviedb.org/3";
         private static string API_KEY = "96fdc416520d2dd5b75c1c82c854e506";
+        private static string IMG_BASE_PATH = "http://image.tmdb.org/t/p/";
         private static RestClient client = new RestClient(URL);
 
         public ApiManager() { }
+        // width : w500 search results
+        // width : original
+        // backdrop : original
 
         public Movie GetMovie(int id)
         {
@@ -33,7 +37,8 @@ namespace CFRDal
             }
 
             Movie movie = JsonSerializer.Deserialize<Movie>(json);
-
+            movie.backdrop_path = IMG_BASE_PATH + "original" + movie.backdrop_path;
+            movie.poster_path = IMG_BASE_PATH + "w500" + movie.poster_path;
             return movie;
         }
 

@@ -1,7 +1,15 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CFRDal",
+    "\\CFRDal\\Services",
+    "\\cfr_backend",
+    "\\cfr_backend\\Controllers",
+    "\\cfr_backend\\Models",
+    "\\cfr_backend\\Properties",
+    "\\cfr_backend\\Views",
+    "\\cfr_backend\\Views\\Home"
   ],
-  "SelectedNode": "\\cfr_backend.sln",
+  "SelectedNode": "\\CFRDal\\Services\\UserManager.cs",
   "PreviewInSolutionExplorer": false
 }

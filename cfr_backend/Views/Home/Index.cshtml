@@ -1,8 +1,17 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Endpoints";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Endpoint List</h1>
+
+    <h2>POST: /createuser</h2>
+    <p>This takes a body and creates a new user.</p>
+    <p>A user has: UserEmail (string)</p>
+
+    <h2>GET: /movie/(id:int)</h2>
+    <p>This takes the int value of a movie id and returns a movie in JSON format.</p>
+
+    <h2>DELETE: /user</h2>
+    <p>The 'id' string is passed in the body. This deletes the user and returns true or false.</p>
 </div>
