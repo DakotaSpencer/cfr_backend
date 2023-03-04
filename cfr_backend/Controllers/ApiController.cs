@@ -1,5 +1,6 @@
 ﻿using CFRDal;
 using CFRDal.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using System.Text.Encodings.Web;
@@ -10,6 +11,7 @@ using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace cfr_backend.Controllers
 {
+    [EnableCors("AllowFrontend")]
     public class ApiController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly IManager _dal;

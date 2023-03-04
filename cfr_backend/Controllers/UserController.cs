@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CFRDal;
 using CFRDal.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace cfr_backend.Controllers
 {
+    [EnableCors("AllowFrontend")]
     public class UserController : Controller
     {
         private readonly IManager _dal;

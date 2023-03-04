@@ -2,6 +2,16 @@ using CFRDal;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "AllowFrontend",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000")
+                .SetIsOriginAllowedToAllowWildcardSubdomains();
+        });
+});
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IManager, ApiManager>();
