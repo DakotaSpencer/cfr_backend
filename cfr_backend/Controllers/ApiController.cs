@@ -38,5 +38,13 @@ namespace cfr_backend.Controllers
             var movies = _dal.SearchMovies(query);
             return Json(movies);
         }
+
+        [Route("movie/{id:int}/similar")]
+        [Microsoft.AspNetCore.Mvc.HttpGet]
+        public Microsoft.AspNetCore.Mvc.JsonResult GetSimilarMovies(int id)
+        {
+            var movies = _dal.GetSimilarMovies(id);
+            return Json(movies);
+        }
     }
 }

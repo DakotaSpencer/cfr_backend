@@ -79,6 +79,28 @@ namespace CFRDal
             return returnList;
         }
 
+        public List<SearchResultMovie> GetSimilarMovies(int id)
+        {
+            List<SearchResultMovie> returnList = new List<SearchResultMovie>();
+            MovieHolder results = new MovieHolder();
+            var req = new RestRequest("https://api.themoviedb.org/3/movie/" + id + "/similar?api_key=" + API_KEY + "&language=en-US");
+            var res = client.Execute(req);
+            string json = "";
+
+            if(res.StatusCode == HttpStatusCode.OK)
+            {
+                results = JsonSerializer.Deserialize<MovieHolder>(res.Content);
+            }
+
+            foreach(var movie in results.results) 
+            {
+                movie.poster_path = IMG_BASE_PATH + "w154" + movie.poster_path;
+                returnList.Add(movie);
+            }
+
+            return returnList;
+        }
+
         public string AuthenticateUser(LoginRequest loginRequest)
         {
             return userManager.Login(loginRequest);

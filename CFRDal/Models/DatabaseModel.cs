@@ -51,4 +51,19 @@ namespace CFRDal.Models
         public string DownvoteUserId { get; set; }
         public string DownvoteReviewId { get; set; }
     }
+
+    public class Role
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public string RoleId { get; set; }
+        public string RoleName { get; set; }
+    }
+
+    public class UserRole 
+    {
+        public string RoleId { get; set; }
+        public string UserId { get; set; }
+    }
+
 }

@@ -11,6 +11,7 @@ namespace CFRDal
     {
         public Movie GetMovie(int id);
         public List<SearchResultMovie> SearchMovies(string query);
+        public List<SearchResultMovie> GetSimilarMovies(int id);
         public List<Review> GetReviewsForMovie(int movieId);
         public List<Review> GetReviewsForUser(string userId);
         public string AuthenticateUser(LoginRequest loginRequest);
