@@ -7,7 +7,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: "AllowFrontend",
         policy =>
         {
-            policy.WithOrigins("http://localhost:3000")
+            policy.WithOrigins("http://localhost*")
                 .SetIsOriginAllowedToAllowWildcardSubdomains();
         });
 });
@@ -31,6 +31,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseCors();
 
 app.UseAuthorization();
 
