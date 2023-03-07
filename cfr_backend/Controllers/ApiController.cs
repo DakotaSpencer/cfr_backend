@@ -38,11 +38,28 @@ namespace cfr_backend.Controllers
             }
         }
 
+
         [Route("movie/search/{query}")]
         [Microsoft.AspNetCore.Mvc.HttpGet]
-        public Microsoft.AspNetCore.Mvc.JsonResult SearchMovies(string query)
+        public Microsoft.AspNetCore.Mvc.JsonResult SearchMoviesByTitle(string query)
         {
             var movies = _dal.SearchMovies(query);
+            return Json(movies);
+        }
+
+        // [Route("movie/search/{query}method=genre")]
+        // [Microsoft.AspNetCore.Mvc.HttpGet]
+        // public Microsoft.AspNetCore.Mvc.JsonResult SearchMoviesByGenre(string query)
+        // {
+        //     var movies = _dal.SearchMoviesByGenre(query);
+        //     return Json(movies);
+        // }
+
+        [Route("movie/search/actor/{query}")]
+        [Microsoft.AspNetCore.Mvc.HttpGet]
+        public Microsoft.AspNetCore.Mvc.JsonResult SearchMoviesByActor(string query)
+        {
+            var movies = _dal.SearchMoviesByActor(query);
             return Json(movies);
         }
 

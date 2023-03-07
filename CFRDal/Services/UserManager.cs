@@ -61,6 +61,11 @@ namespace CFRDal
                 {
                     return "Could not create review. User has already reviewed this movie.";
                 }
+
+                if(review.ReviewRating < 0 || review.ReviewRating > 5)
+                {
+                    return "Bad data passed in. Rating must be between 0 and 5.";
+                }
                 try
                 {
                     review.ReviewTime = DateTime.Now;

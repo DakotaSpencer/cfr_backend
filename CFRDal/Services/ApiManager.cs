@@ -79,6 +79,45 @@ namespace CFRDal
             return returnList;
         }
 
+        // public List<SearchResultMovie> SearchMoviesByActor(string query)
+        // {
+        //     List<SearchResultMovie> returnList = new List<SearchResultMovie>();
+        //     ActorHolder results = new ActorHolder();
+        //     Person person = new Person();
+        //     var req = new RestRequest("https://api.themoviedb.org/3/search/person?api_key=" + API_KEY +"&query=" + query);
+        //     var res = client.Execute(req);
+
+        //     if(res.StatusCode == HttpStatusCode.OK)
+        //     {
+        //         results = JsonSerializer.Deserialize<ActorHolder>(res.Content);
+        //     }
+        //     results.results.ForEach(r => {
+        //         Console.WriteLine(r.Id);
+        //         Console.WriteLine(r.Name);
+        //     });
+        //     int actorId = results.results[0].Id;
+
+        //     req = new RestRequest("https://api.themoviedb.org/3/person/" + actorId + "/movie_credits?api_key=" + API_KEY + "&language=en-US&query=" + query + "&include_adult=false");
+        //     res = client.Execute(req);
+        //     string json = "";
+        //     MovieHolder movieResults = new MovieHolder();
+
+        //     if(res.StatusCode == HttpStatusCode.OK)
+        //     {
+        //         movieResults = JsonSerializer.Deserialize<MovieHolder>(res.Content);
+        //     }
+
+        //     Console.WriteLine(results);
+
+        //     foreach(var movie in movieResults.results) 
+        //     {
+        //         movie.poster_path = IMG_BASE_PATH + "w154" + movie.poster_path;
+        //         returnList.Add(movie);
+        //     }
+
+        //     return returnList;
+        // }
+
         public List<SearchResultMovie> GetSimilarMovies(int id)
         {
             List<SearchResultMovie> returnList = new List<SearchResultMovie>();
