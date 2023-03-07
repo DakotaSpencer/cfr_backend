@@ -22,8 +22,13 @@ namespace cfr_backend.Controllers
         [HttpPost]
         public JsonResult CreateUser([FromBody] User user)
         {
-            var userId = _dal.CreateUser(user);
-            return Json(userId);
+            try {
+                var userId = _dal.CreateUser(user);
+                return Json(userId);
+            } catch (Exception e)
+            {
+                return Json("Exception creating user: " + e);
+            }
         }
 
         [Route("user")]
@@ -46,8 +51,13 @@ namespace cfr_backend.Controllers
         [HttpPost]
         public JsonResult Login([FromBody] LoginRequest loginRequest)
         {
-            var userId = _dal.AuthenticateUser(loginRequest);
-            return Json(userId);
+            try {
+                var userId = _dal.AuthenticateUser(loginRequest);
+                return Json(userId);
+            } catch (Exception e)
+            {
+                return Json("Exception logging in: " +e);
+            }
         }
 
         [Route("user/{id}")]

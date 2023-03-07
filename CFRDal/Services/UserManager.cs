@@ -11,19 +11,13 @@ namespace CFRDal
             {
                 if(dbContext.Users.Any(u => u.UserEmail == user.UserEmail))
                 {
-                    throw new ApplicationException("User with email " + user.UserEmail + " already exists.");
+                    return "User with email " + user.UserEmail + " already exists.";
                 }
 
-                try 
-                {
-                    user.UserPassword = BCrypt.Net.BCrypt.HashPassword(user.UserPassword, BCrypt.Net.BCrypt.GenerateSalt(10));
-                    dbContext.Users.Add(user);
-                    dbContext.SaveChanges();
-                    return user.UserId;
-                } catch (Exception e) {
-                    Console.WriteLine("Exception creating user: " + e);
-                    return "Could not create user";
-                }
+                user.UserPassword = BCrypt.Net.BCrypt.HashPassword(user.UserPassword, BCrypt.Net.BCrypt.GenerateSalt(10));
+                dbContext.Users.Add(user);
+                dbContext.SaveChanges();
+                return user.UserId;
             }
         }
 

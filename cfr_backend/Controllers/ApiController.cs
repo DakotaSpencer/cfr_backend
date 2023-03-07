@@ -29,8 +29,13 @@ namespace cfr_backend.Controllers
         [Microsoft.AspNetCore.Mvc.HttpGet]
         public Microsoft.AspNetCore.Mvc.JsonResult GetMovie(int id)
         {
-            var movie = _dal.GetMovie(id);
-            return Json(movie);
+            try {
+                var movie = _dal.GetMovie(id);            
+                return Json(movie);
+            } catch (Exception e)
+            {
+                return Json("Exception getting movie: " + e);
+            }
         }
 
         [Route("movie/search/{query}")]
@@ -45,8 +50,13 @@ namespace cfr_backend.Controllers
         [Microsoft.AspNetCore.Mvc.HttpGet]
         public Microsoft.AspNetCore.Mvc.JsonResult GetSimilarMovies(int id)
         {
-            var movies = _dal.GetSimilarMovies(id);
-            return Json(movies);
+            try {
+                var movies = _dal.GetSimilarMovies(id);
+                return Json(movies);
+            } catch (Exception e)
+            {
+                return Json("Exception getting similar movies: " + e);
+            }
         }
     }
 }
