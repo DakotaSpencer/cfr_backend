@@ -106,6 +106,11 @@ namespace CFRDal
             return userManager.Login(loginRequest);
         }
 
+        public bool AuthorizeUser(string userId)
+        {
+            return userManager.UserExists(userId);
+        }
+
         public string CreateUser(User user)
         {
             return userManager.CreateUser(user);

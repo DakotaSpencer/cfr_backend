@@ -21,6 +21,7 @@ namespace CFRDal
         public string CreateReview(Review review);
         public string UpdateUser(User user);
         public string UpdateReview(Review review);
+        public bool AuthorizeUser(string userId);
         // votes
         public bool CreateUpvote(Upvote upvote);
         public bool CreateDownvote(Downvote downvote);

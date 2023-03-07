@@ -123,5 +123,13 @@ namespace cfr_backend.Controllers
             bool success = _dal.DeleteReview(id);
             return Json(success);
         }
+
+        [Route("auth")]
+        [HttpGet]
+        public JsonResult AuthorizeUser([FromBody] string userId)
+        {
+            bool success = _dal.AuthorizeUser(userId);
+            return Json(success);
+        }
     }
 }

@@ -271,5 +271,17 @@ namespace CFRDal
                 }
             }
         }
+
+        public bool UserExists(string userId)
+        {
+            using (var context = new ApiDbContext())
+            {
+                if(context.Users.Where(u => u.UserId == userId).ToList().Count > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
