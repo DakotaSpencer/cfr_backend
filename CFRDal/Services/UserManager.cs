@@ -57,6 +57,10 @@ namespace CFRDal
         {
             using (var context = new ApiDbContext())
             {
+                if(context.Reviews.Where(r => r.ReviewUserId == review.ReviewUserId && r.ReviewMovieId == review.ReviewMovieId).ToList().Count > 0)
+                {
+                    return "Could not create review. User has already reviewed this movie.";
+                }
                 try
                 {
                     review.ReviewTime = DateTime.Now;
