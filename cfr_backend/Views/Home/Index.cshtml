@@ -16,6 +16,12 @@
     <h2>POST: /login</h2>
     <p>This takes a login request, which is composed of a string for an email and password.</p>
 
+    <h2>PUT: /user</h2>
+    <p>Updates user with user posted in body. User is composed of UserEmail, UserCity, UserStreet, UserState, UserZIP, UserPhone, UserPassword, UserFirstName, UserLastName.</p>
+
+    <h2>PUT: /review</h2>
+    <p>Updates review with review posted in body. Review is composed of ReviewId, ReviewUserId, ReviewTime, ReviewMovieId, ReviewBody, ReviewTitle, ReviewRating.</p>
+
     <h2>GET: /movie/(id:int)</h2>
     <p>This takes the int value of a movie id and returns a movie in JSON format.</p>
 

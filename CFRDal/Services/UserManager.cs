@@ -122,34 +122,34 @@ namespace CFRDal
             }
         }
 
-        public List<Review> GetReviewsForMovie(int id)
+        public List<ReviewData> GetReviewsForMovie(int id)
         {
             using (var context = new ApiDbContext())
             {
                 try
                 {
-                    List<Review> reviews = context.Reviews.Where(review => review.ReviewMovieId == id).ToList();
+                    List<ReviewData> reviews = context.ReviewData.Where(review => review.ReviewMovieId == id).ToList();
                     return reviews;
                 } catch (Exception e)
                 {
                     Console.WriteLine("Could not get reviews: " + e);
-                    return new List<Review>();
+                    return new List<ReviewData>();
                 }
             }
         }
         
-        public List<Review> GetReviewsForUser(string id)
+        public List<ReviewData> GetReviewsForUser(string id)
         {
             using (var context = new ApiDbContext())
             {
                 try
                 {
-                    List<Review> reviews = context.Reviews.Where(review => review.ReviewUserId == id).ToList();
+                    List<ReviewData> reviews = context.ReviewData.Where(review => review.UserId == id).ToList();
                     return reviews;
                 } catch (Exception e)
                 {
                     Console.WriteLine("Could not get reviews: " + e);
-                    return new List<Review>();
+                    return new List<ReviewData>();
                 }
             }
         }

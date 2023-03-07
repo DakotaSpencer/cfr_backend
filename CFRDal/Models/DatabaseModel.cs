@@ -22,6 +22,20 @@ namespace CFRDal.Models
         public int ReviewRating { get; set; }
     }
 
+    public class ReviewData
+    {
+        public string UserId { get; set; }
+        public string UserPfpUrl { get; set; }
+        public string UserName { get; set; }
+        public string ReviewId { get; set; }
+        public string ReviewTitle { get; set; }
+        public int ReviewMovieId { get; set; }
+        public string ReviewBody { get; set; }
+        public int ReviewRating { get; set; }
+        public int UpVotes { get; set; }
+        public int DownVotes { get; set; }
+    }
+
     public class User
     {
         [Key]

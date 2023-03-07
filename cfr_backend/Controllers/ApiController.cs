@@ -63,7 +63,7 @@ namespace cfr_backend.Controllers
         [Microsoft.AspNetCore.Mvc.HttpGet]
         public Microsoft.AspNetCore.Mvc.JsonResult GetReviewsForMovie(int id)
         {
-            List<Review> reviews = _dal.GetReviewsForMovie(id);
+            List<ReviewData> reviews = _dal.GetReviewsForMovie(id);
             return Json(reviews);
         }
     }

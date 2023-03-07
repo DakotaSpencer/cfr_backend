@@ -47,12 +47,12 @@ namespace CFRDal
             return movie;
         }
 
-        public List<Review> GetReviewsForMovie(int movieId)
+        public List<ReviewData> GetReviewsForMovie(int movieId)
         {
             return userManager.GetReviewsForMovie(movieId);
         }
 
-        public List<Review> GetReviewsForUser(string userId)
+        public List<ReviewData> GetReviewsForUser(string userId)
         {
             return userManager.GetReviewsForUser(userId);
         }

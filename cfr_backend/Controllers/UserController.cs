@@ -60,7 +60,7 @@ namespace cfr_backend.Controllers
             }
         }
 
-        [Route("user/{id}")]
+        [Route("user")]
         [HttpPut]
         public JsonResult UpdateUser([FromBody] User user)
         {
@@ -68,7 +68,7 @@ namespace cfr_backend.Controllers
             return Json(userId);
         }
 
-        [Route("review/{id}")]
+        [Route("review")]
         [HttpPut]
         public JsonResult UpdateReview([FromBody] Review review)
         {
@@ -80,7 +80,7 @@ namespace cfr_backend.Controllers
         [HttpGet]
         public JsonResult GetReviewsForUser(string userId)
         {
-            List<Review> reviews = _dal.GetReviewsForUser(userId);
+            List<ReviewData> reviews = _dal.GetReviewsForUser(userId);
             return Json(reviews);
         }
 
