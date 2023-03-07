@@ -25,7 +25,7 @@ namespace CFRDal.Models
     public class ReviewData
     {
         public string UserId { get; set; }
-        public string UserPfpUrl { get; set; }
+        public string? UserPfpUrl { get; set; }
         public string UserName { get; set; }
         public string ReviewId { get; set; }
         public string ReviewTitle { get; set; }

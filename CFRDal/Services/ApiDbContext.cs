@@ -33,7 +33,7 @@ namespace CFRDal
             modelBuilder.Entity<Review>().ToTable("reviews");
             modelBuilder.Entity<Downvote>().ToTable("downvotes").HasNoKey();
             modelBuilder.Entity<Upvote>().ToTable("upvotes").HasNoKey();
-            modelBuilder.Entity<ReviewData>().ToView("getReviewData");
+            modelBuilder.Entity<ReviewData>().ToView("getReviewData").HasNoKey();
         }
 
         public DbSet<Review> Reviews { get; set; }
