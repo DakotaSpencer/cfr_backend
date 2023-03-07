@@ -76,14 +76,6 @@ namespace cfr_backend.Controllers
             return Json(reviewId);
         }
 
-        [Route("movie/{id:int}/reviews")]
-        [HttpGet]
-        public JsonResult GetReviewsForMovie(int movieId)
-        {
-            List<Review> reviews = _dal.GetReviewsForMovie(movieId);
-            return Json(reviews);
-        }
-
         [Route("user/{id}/reviews")]
         [HttpGet]
         public JsonResult GetReviewsForUser(string userId)

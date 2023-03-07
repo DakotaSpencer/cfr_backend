@@ -25,7 +25,7 @@ namespace cfr_backend.Controllers
             return View();
         }
 
-        [Route("movie/{id:int}")]
+        [Route("movie/{id}")]
         [Microsoft.AspNetCore.Mvc.HttpGet]
         public Microsoft.AspNetCore.Mvc.JsonResult GetMovie(int id)
         {
@@ -46,7 +46,7 @@ namespace cfr_backend.Controllers
             return Json(movies);
         }
 
-        [Route("movie/{id:int}/similar")]
+        [Route("movie/{id}/similar")]
         [Microsoft.AspNetCore.Mvc.HttpGet]
         public Microsoft.AspNetCore.Mvc.JsonResult GetSimilarMovies(int id)
         {
@@ -57,6 +57,14 @@ namespace cfr_backend.Controllers
             {
                 return Json("Exception getting similar movies: " + e);
             }
+        }
+
+        [Route("movie/{id}/reviews")]
+        [Microsoft.AspNetCore.Mvc.HttpGet]
+        public Microsoft.AspNetCore.Mvc.JsonResult GetReviewsForMovie(int id)
+        {
+            List<Review> reviews = _dal.GetReviewsForMovie(id);
+            return Json(reviews);
         }
     }
 }
