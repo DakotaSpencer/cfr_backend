@@ -55,13 +55,13 @@ namespace cfr_backend.Controllers
         //     return Json(movies);
         // }
 
-        [Route("movie/search/actor/{query}")]
-        [Microsoft.AspNetCore.Mvc.HttpGet]
-        public Microsoft.AspNetCore.Mvc.JsonResult SearchMoviesByActor(string query)
-        {
-            var movies = _dal.SearchMoviesByActor(query);
-            return Json(movies);
-        }
+        // [Route("movie/search/actor/{query}")]
+        // [Microsoft.AspNetCore.Mvc.HttpGet]
+        // public Microsoft.AspNetCore.Mvc.JsonResult SearchMoviesByActor(string query)
+        // {
+        //     var movies = _dal.SearchMoviesByActor(query);
+        //     return Json(movies);
+        // }
 
         [Route("movie/{id}/similar")]
         [Microsoft.AspNetCore.Mvc.HttpGet]
